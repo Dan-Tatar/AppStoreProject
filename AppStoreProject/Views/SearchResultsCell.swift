@@ -22,7 +22,6 @@ class SearchResultsCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let nl = UILabel()
         nl.text = "APP NAME"
-        nl.backgroundColor = .green
         return nl
     }()
     
@@ -35,7 +34,6 @@ class SearchResultsCell: UICollectionViewCell {
     let ratingLabel: UILabel = {
         let nl = UILabel()
         nl.text = "9.26M"
-        nl.backgroundColor = .green
         return nl
     }()
     
@@ -63,11 +61,8 @@ class SearchResultsCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let infoTopStackView = UIStackView(arrangedSubviews: [appIconImageView, VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingLabel]), getButton])
         
-        let labelsStackView = UIStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingLabel])
-        labelsStackView.axis = .vertical
-        
-        let infoTopStackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
         
         infoTopStackView.spacing = 12
         infoTopStackView.alignment = .center
@@ -76,11 +71,10 @@ class SearchResultsCell: UICollectionViewCell {
         screenShotsStackView.spacing = 12
         screenShotsStackView.distribution = .fillEqually
         screenShotsStackView.axis = .horizontal
-        
-        let overallStackView = UIStackView(arrangedSubviews: [infoTopStackView, screenShotsStackView])
+
+        let overallStackView = VerticalStackView(arrangedSubviews: [infoTopStackView, screenShotsStackView], spacing: 16)
         overallStackView.translatesAutoresizingMaskIntoConstraints = false
-        overallStackView.axis = .vertical
-        overallStackView.spacing = 16
+
         
         addSubview(overallStackView)
         overallStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true

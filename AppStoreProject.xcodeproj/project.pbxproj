@@ -18,6 +18,7 @@
 		10183DE62225CD1C0049BA5A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE52225CD1C0049BA5A /* BaseTabBarController.swift */; };
 		10183DE822272CA00049BA5A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE722272CA00049BA5A /* SearchController.swift */; };
 		10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE92227353A0049BA5A /* SearchResultsCell.swift */; };
+		10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DEF222E69950049BA5A /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		10183DE52225CD1C0049BA5A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		10183DE722272CA00049BA5A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		10183DE92227353A0049BA5A /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
+		10183DEF222E69950049BA5A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				10183DE52225CD1C0049BA5A /* BaseTabBarController.swift */,
 				10183DEB222735DF0049BA5A /* Views */,
 				10183DE722272CA00049BA5A /* SearchController.swift */,
+				10183DF1222E69AD0049BA5A /* Helpers */,
 				10183DB82225CCB50049BA5A /* Main.storyboard */,
 				10183DBE2225CCBA0049BA5A /* Assets.xcassets */,
 				10183DC02225CCBA0049BA5A /* LaunchScreen.storyboard */,
@@ -143,6 +146,14 @@
 				10183DE92227353A0049BA5A /* SearchResultsCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		10183DF1222E69AD0049BA5A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				10183DEF222E69950049BA5A /* VerticalStackView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				10183DBD2225CCB50049BA5A /* AppStoreProject.xcdatamodeld in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,
+				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
