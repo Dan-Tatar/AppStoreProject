@@ -11,10 +11,11 @@ import Foundation
 struct SearchResult: Decodable {
     var resultCount: Int
     var results: [Results]
+ 
 }
-
 
 struct Results: Decodable {
     let trackName: String
     let primaryGenreName: String
+    var averageUserRating: Float?
 }
