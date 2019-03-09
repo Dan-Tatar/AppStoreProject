@@ -20,6 +20,7 @@
 		10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE92227353A0049BA5A /* SearchResultsCell.swift */; };
 		10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DEF222E69950049BA5A /* VerticalStackView.swift */; };
 		104C03AA22325AD8005D320E /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03A922325AD8005D320E /* SearchResult.swift */; };
+		104C03AD22328426005D320E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03AC22328426005D320E /* Services.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		10183DE92227353A0049BA5A /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		10183DEF222E69950049BA5A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		104C03A922325AD8005D320E /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		104C03AC22328426005D320E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		104C03A82231C183005D320E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				104C03AC22328426005D320E /* Services.swift */,
 				10183DE722272CA00049BA5A /* SearchController.swift */,
 			);
 			path = Controllers;
@@ -313,6 +316,7 @@
 				10183DBD2225CCB50049BA5A /* AppStoreProject.xcdatamodeld in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,
+				104C03AD22328426005D320E /* Services.swift in Sources */,
 				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

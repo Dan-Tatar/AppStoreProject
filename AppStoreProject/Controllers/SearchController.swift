@@ -18,33 +18,22 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         
         collectionView.backgroundColor = .white
         collectionView.register(SearchResultsCell.self, forCellWithReuseIdentifier: cellID)
-        fetchITunesData()
+        
+        fetchItunesApp()
     }
     
-    fileprivate func fetchITunesData() {
+    func fetchItunesApp() {
         
-        let urLString = "https://itunes.apple.com/search?term=instagram&entity=software"
-        guard let url = URL(string: urLString) else { return}
-        URLSession.shared.dataTask(with: url) { (data, response, error)  in
-            
-            if let error = error {
-                print("Failed to fetch Apps", error)
+        Service.shared.fetchApps() { (results, err)  in
+            if let err = err {
+                print("There is a fetch error \(err)")
             }
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let searchResult = try decoder.decode(SearchResult.self, from: data)
-                searchResult.results.forEach( { print($0.trackName, $0.primaryGenreName)} )
-                
-                self.appResults = searchResult.results
-                DispatchQueue.main.async {
-                self.collectionView.reloadData()
-                }
-                
-            } catch let jsonError {
-                print("Failed to decode json", jsonError)
+            self.appResults = results
+            DispatchQueue.main.async {
+                 self.collectionView.reloadData()
             }
-            }.resume()
+        }
+        
     }
     
     init() {
