@@ -9,10 +9,12 @@
 import UIKit
 import SDWebImage
 
-class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let cellID = "cellID"
     fileprivate var appResults = [Results]()
+
+    fileprivate var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,34 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         collectionView.backgroundColor = .white
         collectionView.register(SearchResultsCell.self, forCellWithReuseIdentifier: cellID)
         
+        setupSearchBar()
+        
         fetchItunesApp()
+    }
+    
+    //Setting the properties for search bur as well as adding the delegate to notify the viewcontroller when changes are made
+    fileprivate func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        
+    }
+    
+    //Notifies when text changes in the searchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        Service.shared.fetchApps(searchTerm: searchText) { (result, err) in
+            self.appResults = result
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func fetchItunesApp() {
         
-        Service.shared.fetchApps() { (results, err)  in
+        Service.shared.fetchApps(searchTerm: "Twitter") { (results, err)  in
             if let err = err {
                 print("There is a fetch error \(err)")
             }
