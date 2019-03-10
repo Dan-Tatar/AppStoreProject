@@ -37,15 +37,25 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         
     }
     
+    var timer: Timer?
+    
     //Notifies when text changes in the searchBar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            
         Service.shared.fetchApps(searchTerm: searchText) { (result, err) in
-            self.appResults = result
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            
+          
+                self.appResults = result
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
-        }
+        })
     }
+        
     
     func fetchItunesApp() {
         
