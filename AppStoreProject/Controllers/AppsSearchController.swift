@@ -16,6 +16,14 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
 
     fileprivate var searchController = UISearchController(searchResultsController: nil)
     
+    var searchLabel: UILabel = {
+        let sl = UILabel()
+        sl.text = "Please enter searched text"
+        sl.font = UIFont.systemFont(ofSize: 20)
+        sl.translatesAutoresizingMaskIntoConstraints = false
+        return sl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +31,11 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         collectionView.register(SearchResultsCell.self, forCellWithReuseIdentifier: cellID)
         
         setupSearchBar()
+        collectionView.addSubview(searchLabel)
         
-        fetchItunesApp()
+        searchLabel.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        searchLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 100).isActive = true
+//        fetchItunesApp()
     }
     
     //Setting the properties for search bur as well as adding the delegate to notify the viewcontroller when changes are made
@@ -56,7 +67,6 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         })
     }
         
-    
     func fetchItunesApp() {
         
         Service.shared.fetchApps(searchTerm: "Twitter") { (results, err)  in
@@ -83,6 +93,8 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        searchLabel.isHidden = appResults.count != 0
+
         return appResults.count
     }
     
