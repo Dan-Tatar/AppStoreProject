@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1010736C2235803F00080824 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736B2235803F00080824 /* AppsController.swift */; };
+		1010736E223581CD00080824 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736D223581CD00080824 /* BaseListController.swift */; };
+		10107370223590F300080824 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736F223590F300080824 /* AppsGroupCell.swift */; };
 		10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DB42225CCB50049BA5A /* AppDelegate.swift */; };
 		10183DB72225CCB50049BA5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DB62225CCB50049BA5A /* ViewController.swift */; };
 		10183DBA2225CCB50049BA5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10183DB82225CCB50049BA5A /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		0513331DFCED761CF5A4A3F2 /* Pods-AppStoreProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProjectTests/Pods-AppStoreProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		082A124DB22BE9D7B2EA1657 /* Pods-AppStoreProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProjectTests/Pods-AppStoreProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		1010736B2235803F00080824 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
+		1010736D223581CD00080824 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseListController.swift; path = /Users/dantatar/src/AppStoreProject/AppStoreProject/Controllers/BaseListController.swift; sourceTree = "<absolute>"; };
+		1010736F223590F300080824 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		10183DB12225CCB40049BA5A /* AppStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10183DB42225CCB50049BA5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10183DB62225CCB50049BA5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				10183DE92227353A0049BA5A /* SearchResultsCell.swift */,
+				1010736F223590F300080824 /* AppsGroupCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +190,8 @@
 			children = (
 				104C03AC22328426005D320E /* Services.swift */,
 				10183DE722272CA00049BA5A /* AppsSearchController.swift */,
+				1010736B2235803F00080824 /* AppsController.swift */,
+				1010736D223581CD00080824 /* BaseListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -447,8 +456,11 @@
 				10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */,
 				10183DE62225CD1C0049BA5A /* BaseTabBarController.swift in Sources */,
 				104C03AA22325AD8005D320E /* SearchResult.swift in Sources */,
+				1010736C2235803F00080824 /* AppsController.swift in Sources */,
 				10183DE822272CA00049BA5A /* AppsSearchController.swift in Sources */,
+				1010736E223581CD00080824 /* BaseListController.swift in Sources */,
 				10183DBD2225CCB50049BA5A /* AppStoreProject.xcdatamodeld in Sources */,
+				10107370223590F300080824 /* AppsGroupCell.swift in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,
 				104C03AD22328426005D320E /* Services.swift in Sources */,
