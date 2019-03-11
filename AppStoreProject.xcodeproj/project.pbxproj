@@ -10,6 +10,7 @@
 		1010736C2235803F00080824 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736B2235803F00080824 /* AppsController.swift */; };
 		1010736E223581CD00080824 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736D223581CD00080824 /* BaseListController.swift */; };
 		10107370223590F300080824 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736F223590F300080824 /* AppsGroupCell.swift */; };
+		101073722236535500080824 /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101073712236535500080824 /* ExtensionUILabel.swift */; };
 		10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DB42225CCB50049BA5A /* AppDelegate.swift */; };
 		10183DB72225CCB50049BA5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DB62225CCB50049BA5A /* ViewController.swift */; };
 		10183DBA2225CCB50049BA5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10183DB82225CCB50049BA5A /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		1010736B2235803F00080824 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 		1010736D223581CD00080824 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseListController.swift; path = /Users/dantatar/src/AppStoreProject/AppStoreProject/Controllers/BaseListController.swift; sourceTree = "<absolute>"; };
 		1010736F223590F300080824 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
+		101073712236535500080824 /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		10183DB12225CCB40049BA5A /* AppStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10183DB42225CCB50049BA5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10183DB62225CCB50049BA5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				10183DEF222E69950049BA5A /* VerticalStackView.swift */,
+				101073712236535500080824 /* ExtensionUILabel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				10107370223590F300080824 /* AppsGroupCell.swift in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,
+				101073722236535500080824 /* ExtensionUILabel.swift in Sources */,
 				104C03AD22328426005D320E /* Services.swift in Sources */,
 				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 			);

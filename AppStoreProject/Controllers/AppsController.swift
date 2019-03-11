@@ -14,8 +14,6 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
 
     private let reuseIdentifier = "CellID"
     
-//    var titleLabel = UILabel(text: "App Selection", font: UIFont.systemFont(ofSize: 30))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,17 +33,8 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppsGroupCell
-//        cell.backgroundColor = .blue
-        // Configure the cell
     
         return cell
     }
-
-//    func setupViews() {
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        collectionView.addSubview(titleLabel)
-//        titleLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
-//        titleLabel.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 10).isActive = true
-//    }
 
 }
