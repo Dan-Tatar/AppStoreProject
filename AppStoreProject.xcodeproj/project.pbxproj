@@ -26,6 +26,7 @@
 		10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DEF222E69950049BA5A /* VerticalStackView.swift */; };
 		104C03AA22325AD8005D320E /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03A922325AD8005D320E /* SearchResult.swift */; };
 		104C03AD22328426005D320E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03AC22328426005D320E /* Services.swift */; };
+		10B6E8A622379BC9005EC6F9 /* AppsHorozontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */; };
 		324EB169A165014E27F1D39E /* Pods_AppStoreProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194A2929860B17ED51903A0D /* Pods_AppStoreProjectTests.framework */; };
 		65DB2B3C31FC133426A9117B /* Pods_AppStoreProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC2A022048A6978C216C9D /* Pods_AppStoreProject.framework */; };
 		B1BD086DF667E870B385DDAF /* Pods_AppStoreProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 595A83DE9681838125EFA7C5 /* Pods_AppStoreProjectUITests.framework */; };
@@ -76,6 +77,7 @@
 		10183DEF222E69950049BA5A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		104C03A922325AD8005D320E /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		104C03AC22328426005D320E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorozontalCell.swift; sourceTree = "<group>"; };
 		194A2929860B17ED51903A0D /* Pods_AppStoreProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34050DFADE92F1973B8483CF /* Pods-AppStoreProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProjectUITests/Pods-AppStoreProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		595A83DE9681838125EFA7C5 /* Pods_AppStoreProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 			children = (
 				10183DE92227353A0049BA5A /* SearchResultsCell.swift */,
 				1010736F223590F300080824 /* AppsGroupCell.swift */,
+				10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				10183DE822272CA00049BA5A /* AppsSearchController.swift in Sources */,
 				1010736E223581CD00080824 /* BaseListController.swift in Sources */,
 				10183DBD2225CCB50049BA5A /* AppStoreProject.xcdatamodeld in Sources */,
+				10B6E8A622379BC9005EC6F9 /* AppsHorozontalCell.swift in Sources */,
 				10107370223590F300080824 /* AppsGroupCell.swift in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,

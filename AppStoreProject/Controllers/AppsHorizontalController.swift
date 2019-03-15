@@ -14,12 +14,12 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(AppsHorizontalCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         if let layout = collectionViewLayout  as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
        
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = .white
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,14 +31,14 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     var topBottomPadding: CGFloat = 12
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = (view.frame.height - 2 * topBottomPadding - 2 * lineSpacing) / 3
+        let height: CGFloat = (view.frame.height - 2 * topBottomPadding - 2 * lineSpacing - 16) / 3
         let width: CGFloat = 16 + 16
         return CGSize(width: view.frame.width - width - 20, height: height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
-        cell.backgroundColor = .blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)  as! AppsHorizontalCell
+        
         return cell
     }
     
