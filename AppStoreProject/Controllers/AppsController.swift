@@ -12,6 +12,7 @@ import UIKit
 
 class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
 
+    
     private let reuseIdentifier = "CellID"
     private let headerCell = "headerCell"
     
@@ -22,6 +23,17 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
 
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCell)
         collectionView.backgroundColor = .white
+        
+        Service.shared.fetchApps { (res, err)  in
+            if let err = err {
+                print("Failed to load data", err)
+            }
+            DispatchQueue.main.async {
+                print(res?.feed.title)
+              
+//                print("dani is\(self.appResults)")
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,6 +58,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppsGroupCell
     
+      
         return cell
     }
     

@@ -10,8 +10,6 @@ import UIKit
 
 class AppHeaderCollectionCell: UICollectionViewCell {
     
-    
-    
     let companyLabel = UILabel(text: "Facebook", font: UIFont.systemFont(ofSize: 12))
     
     let titleLabel = UILabel(text: "Keeping up with friends is faster than ever", font: UIFont.systemFont(ofSize: 26))
