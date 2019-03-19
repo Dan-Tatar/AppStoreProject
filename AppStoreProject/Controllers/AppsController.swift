@@ -11,7 +11,8 @@ import UIKit
 
 
 class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
-
+    
+    var editorChoice: AppGroup?
     
     private let reuseIdentifier = "CellID"
     private let headerCell = "headerCell"
@@ -30,8 +31,9 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
             }
             DispatchQueue.main.async {
                 print(res?.feed.title)
-              
-//                print("dani is\(self.appResults)")
+              self.editorChoice = res
+                print("dani is\(self.editorChoice?.feed.title)")
+                self.collectionView.reloadData()
             }
         }
     }
@@ -58,7 +60,10 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppsGroupCell
     
-      
+            cell.titleLabel.text = editorChoice?.feed.title
+            cell.horizontalController.appGroup = editorChoice
+            cell.horizontalController.collectionView.reloadData()
+       
         return cell
     }
     
