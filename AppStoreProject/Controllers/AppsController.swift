@@ -29,49 +29,53 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
         fetchData()
     }
     
-    func fetchData() {
-    
+    fileprivate func fetchData() {
+        var group1: AppGroup?
+        var group2: AppGroup?
+        var group3: AppGroup?
+        
+        // Uses Dispatch group allow syncronization of the multiple fetch requests displayed in the collectionView
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
         Service.shared.fetchNewApps { (res, err)  in
+            dispatchGroup.leave()
             if let err = err {
                 print("Failed to load data", err)
             }
-            
-            if let appResult = res {
-                self.group.append(appResult)
-                
-            }
-            DispatchQueue.main.async {
-                print("1")
-                self.collectionView.reloadData()
-            }
+            group1 = res
         }
-        // Ferch request
-        Service.shared.fetchTopGrossingApps(completion: { (res, err) in
+       
+        dispatchGroup.enter()
+        Service.shared.fetchTopGrossingApps { (res, err) in
+            dispatchGroup.leave()
             if let err = err {
                 print(err)
             }
-            if let appResult = res {
-                self.group.append(appResult)
-            }
-            DispatchQueue.main.async {
-                print("dani is\(self.editorChoice?.feed.title)")
-                print("2")
-                self.collectionView.reloadData()
-            }
-        })
+           group2 = res
+        }
         
+        dispatchGroup.enter()
         Service.shared.fetchTopFreeApps { (res, err) in
-            
+            dispatchGroup.leave()
             if let err = err {
                 print(err)
             }
-            if let appResult = res {
-                self.group.append(appResult)
+           group3 = res
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("Fetch has been completed...")
+            if let group1 = group1 {
+                self.group.append(group1)
             }
-            DispatchQueue.main.async {
-                print("3")
-                self.collectionView.reloadData()
+            if let group2 = group2 {
+                self.group.append(group2)
             }
+            if let group3 = group3 {
+                self.group.append(group3)
+            }
+            self.collectionView.reloadData()
         }
     }
     
