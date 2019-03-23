@@ -15,7 +15,7 @@ class AppsHorizontalCell: UICollectionViewCell {
     
     let namelLabel = UILabel(text: "App name", font: UIFont.boldSystemFont(ofSize: 16))
     let companyLabel = UILabel(text: "Company name", font: UIFont.systemFont(ofSize: 13))
-    let getbutton = UIButton(title: "Get")
+    let getButton = UIButton(title: "Get")
     
     
     override init(frame: CGRect) {
@@ -25,13 +25,13 @@ class AppsHorizontalCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
         
-        getbutton.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        getbutton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        getbutton.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        getbutton.layer.cornerRadius = 32/2
-        getbutton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        getButton.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        getButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        getButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        getButton.layer.cornerRadius = 32/2
+        getButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
-        let stackView = UIStackView(arrangedSubviews: [imageView, VerticalStackView(arrangedSubviews: [namelLabel, companyLabel], spacing: 4), getbutton])
+        let stackView = UIStackView(arrangedSubviews: [imageView, VerticalStackView(arrangedSubviews: [namelLabel, companyLabel], spacing: 4), getButton])
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true

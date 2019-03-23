@@ -16,9 +16,11 @@ class Service {
     func fetchApps(searchTerm: String, completionHandler:  @escaping ([Results], Error?) -> ()) {
         
         let urLString = "https://itunes.apple.com/search?term=\(searchTerm)m&entity=software"
+        
+        
         guard let url = URL(string: urLString) else { return}
         URLSession.shared.dataTask(with: url) { (data, response, error)  in
-            
+
             if let error = error {
                 completionHandler([], error)
                 print("Failed to fetch Apps", error)
@@ -33,12 +35,29 @@ class Service {
                 print("Failed to decode json", jsonError)
             }
             }.resume()
-        
+   
     }
     
-    func fetchApps(completion: @escaping (AppGroup?, Error?) -> ()) {
+    func fetchNewApps(completion: @escaping (AppGroup?, Error?) -> ()) {
         
+        let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
+      fetchData(with: url, completion: completion)
+    }
+    
+    func fetchTopGrossingApps(completion: @escaping (AppGroup?, Error?) -> ()) {
+    
         let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json"
+        fetchData(with: url, completion: completion)
+    }
+    
+    func fetchTopFreeApps(completion: @escaping (AppGroup?, Error?) -> ()) {
+            
+        let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/50/explicit.json"
+        fetchData(with: url, completion: completion)
+    }
+
+    func fetchData(with url: String, completion: @escaping (AppGroup?, Error?) -> () ) {
+        
         guard let urlString = URL(string: url) else { return }
         URLSession.shared.dataTask(with: urlString) {(data, respose, err) in
             if let err = err  {
@@ -50,7 +69,7 @@ class Service {
                 let decoder = JSONDecoder()
                 let appsData = try decoder.decode(AppGroup.self, from: data)
                 completion(appsData, nil)
-
+                
             } catch {
                 print("failed to decode", error)
             }
