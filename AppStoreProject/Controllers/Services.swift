@@ -20,7 +20,7 @@ class Service {
         
         guard let url = URL(string: urLString) else { return}
         URLSession.shared.dataTask(with: url) { (data, response, error)  in
-
+            
             if let error = error {
                 completionHandler([], error)
                 print("Failed to fetch Apps", error)
@@ -35,27 +35,27 @@ class Service {
                 print("Failed to decode json", jsonError)
             }
             }.resume()
-   
+        
     }
     
     func fetchNewApps(completion: @escaping (AppGroup?, Error?) -> ()) {
         
         let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
-      fetchData(with: url, completion: completion)
+        fetchData(with: url, completion: completion)
     }
     
     func fetchTopGrossingApps(completion: @escaping (AppGroup?, Error?) -> ()) {
-    
+        
         let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json"
         fetchData(with: url, completion: completion)
     }
     
     func fetchTopFreeApps(completion: @escaping (AppGroup?, Error?) -> ()) {
-            
+        
         let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/50/explicit.json"
         fetchData(with: url, completion: completion)
     }
-
+    
     func fetchData(with url: String, completion: @escaping (AppGroup?, Error?) -> () ) {
         
         guard let urlString = URL(string: url) else { return }
@@ -73,6 +73,31 @@ class Service {
             } catch {
                 print("failed to decode", error)
             }
-        }.resume()
+            }.resume()
     }
+    
+    func fetchHeaderData(completion: @escaping ([SocialApps]?, Error?) -> ()) {
+        
+        let url = "https://api.letsbuildthatapp.com/appstore/social"
+        
+        guard let urlString = URL(string: url) else { return
+            print("Error with URL")
+        }
+        
+        URLSession.shared.dataTask(with: urlString){ (data, result, err) in
+            if let err = err {
+                completion(nil, err)
+            }
+            do {
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                let decodedData = try? decoder.decode([SocialApps].self, from: data)
+                completion(decodedData, nil)
+            } catch {
+                print("Data could not be decoded for header")
+            }
+        }.resume()
+        
+    }
+    
 }

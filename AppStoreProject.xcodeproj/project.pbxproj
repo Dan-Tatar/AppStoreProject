@@ -30,6 +30,7 @@
 		1055730C223C2892002A3832 /* AppHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055730B223C2892002A3832 /* AppHeaderCollectionView.swift */; };
 		1055730E223C2A9F002A3832 /* AppHeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055730D223C2A9F002A3832 /* AppHeaderCollectionCell.swift */; };
 		10557310223D640A002A3832 /* AppsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055730F223D640A002A3832 /* AppsModel.swift */; };
+		1055731222465B52002A3832 /* SocialApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055731122465B52002A3832 /* SocialApps.swift */; };
 		10B6E8A622379BC9005EC6F9 /* AppsHorozontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */; };
 		324EB169A165014E27F1D39E /* Pods_AppStoreProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194A2929860B17ED51903A0D /* Pods_AppStoreProjectTests.framework */; };
 		65DB2B3C31FC133426A9117B /* Pods_AppStoreProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC2A022048A6978C216C9D /* Pods_AppStoreProject.framework */; };
@@ -85,6 +86,7 @@
 		1055730B223C2892002A3832 /* AppHeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderCollectionView.swift; sourceTree = "<group>"; };
 		1055730D223C2A9F002A3832 /* AppHeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderCollectionCell.swift; sourceTree = "<group>"; };
 		1055730F223D640A002A3832 /* AppsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsModel.swift; sourceTree = "<group>"; };
+		1055731122465B52002A3832 /* SocialApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApps.swift; sourceTree = "<group>"; };
 		10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorozontalCell.swift; sourceTree = "<group>"; };
 		194A2929860B17ED51903A0D /* Pods_AppStoreProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34050DFADE92F1973B8483CF /* Pods-AppStoreProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProjectUITests/Pods-AppStoreProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				104C03A922325AD8005D320E /* SearchResult.swift */,
 				1055730F223D640A002A3832 /* AppsModel.swift */,
+				1055731122465B52002A3832 /* SocialApps.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				101073722236535500080824 /* ExtensionUILabel.swift in Sources */,
 				104C03AD22328426005D320E /* Services.swift in Sources */,
 				1055730E223C2A9F002A3832 /* AppHeaderCollectionCell.swift in Sources */,
+				1055731222465B52002A3832 /* SocialApps.swift in Sources */,
 				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

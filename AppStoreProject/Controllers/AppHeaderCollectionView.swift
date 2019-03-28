@@ -11,11 +11,12 @@ import UIKit
 class AppHeaderCollectionView: BaseListController, UICollectionViewDelegateFlowLayout {
     
     private var reusableCell = "reusableCell"
+    var socialApps = [SocialApps]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         collectionView.backgroundColor = . white
+        collectionView.backgroundColor = . white
         collectionView.register(AppHeaderCollectionCell.self, forCellWithReuseIdentifier: reusableCell)
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
            layout.scrollDirection = .horizontal
@@ -27,7 +28,7 @@ class AppHeaderCollectionView: BaseListController, UICollectionViewDelegateFlowL
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return socialApps.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -36,7 +37,10 @@ class AppHeaderCollectionView: BaseListController, UICollectionViewDelegateFlowL
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCell, for: indexPath) as! AppHeaderCollectionCell
-        
+        let data = socialApps[indexPath.row]
+        cell.companyLabel.text = data.name
+        cell.titleLabel.text = data.tagline
+        cell.imageView.sd_setImage(with: URL(string: data.imageUrl ?? "0"))
         return cell
     }
 }
