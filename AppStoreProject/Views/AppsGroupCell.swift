@@ -16,14 +16,19 @@ class AppsGroupCell: UICollectionViewCell {
     
     let horizontalController = AppsHorizontalController()
     
+    
+    let activityIndicator = UIActivityIndicatorView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         horizontalController.view.translatesAutoresizingMaskIntoConstraints = false
-       
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(horizontalController.view)
         addSubview(titleLabel)
+        addSubview(activityIndicator)
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         
@@ -31,6 +36,11 @@ class AppsGroupCell: UICollectionViewCell {
         horizontalController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
         horizontalController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         horizontalController.view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        activityIndicator.widthAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
