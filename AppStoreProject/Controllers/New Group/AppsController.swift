@@ -35,17 +35,20 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
         collectionView.backgroundColor = .white
         view.addSubview(activityIndicator)
          activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        fetchData()
+        
         
         activityIndicator.startAnimating()
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         activityIndicator.heightAnchor.constraint(equalToConstant: 44).isActive = true
         activityIndicator.widthAnchor.constraint(equalToConstant: 44).isActive = true
+
+        fetchData()
     }
     
-//    let cell = AppsGroupCell()
+    
     fileprivate func fetchData() {
+      
         var group1: AppGroup?
         var group2: AppGroup?
         var group3: AppGroup?
@@ -55,6 +58,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         dispatchGroup.enter()
         Service.shared.fetchHeaderData(completion: { (apps, err) in
+           
             dispatchGroup.leave()
             if let err = err {
                 print ("Error is \(err)" )
