@@ -125,6 +125,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		100DB21B2258EDA100B6A1B9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				104C03AC22328426005D320E /* Services.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		100DB21D2258EE8500B6A1B9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				10183DE722272CA00049BA5A /* AppsSearchController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		100DB21E2258EE9B00B6A1B9 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				1055730B223C2892002A3832 /* AppHeaderCollectionView.swift */,
+				1010736B2235803F00080824 /* AppsController.swift */,
+				101073732236556200080824 /* AppsHorizontalController.swift */,
+			);
+			name = Apps;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		10183DA82225CCB40049BA5A = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +180,7 @@
 				10183DB42225CCB50049BA5A /* AppDelegate.swift */,
 				10183DB62225CCB50049BA5A /* ViewController.swift */,
 				10183DE52225CD1C0049BA5A /* BaseTabBarController.swift */,
+				100DB21B2258EDA100B6A1B9 /* Services */,
 				104C03AB22325F8E005D320E /* Model */,
 				10183DEB222735DF0049BA5A /* Views */,
 				104C03A82231C183005D320E /* Controllers */,
@@ -199,6 +227,7 @@
 		10183DF1222E69AD0049BA5A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1010736D223581CD00080824 /* BaseListController.swift */,
 				10183DEF222E69950049BA5A /* VerticalStackView.swift */,
 				101073712236535500080824 /* ExtensionUILabel.swift */,
 			);
@@ -208,12 +237,8 @@
 		104C03A82231C183005D320E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				104C03AC22328426005D320E /* Services.swift */,
-				10183DE722272CA00049BA5A /* AppsSearchController.swift */,
-				1010736B2235803F00080824 /* AppsController.swift */,
-				101073732236556200080824 /* AppsHorizontalController.swift */,
-				1055730B223C2892002A3832 /* AppHeaderCollectionView.swift */,
-				1010736D223581CD00080824 /* BaseListController.swift */,
+				100DB21D2258EE8500B6A1B9 /* Search */,
+				100DB21E2258EE9B00B6A1B9 /* Apps */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

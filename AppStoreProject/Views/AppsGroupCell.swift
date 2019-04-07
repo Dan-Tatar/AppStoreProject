@@ -21,9 +21,10 @@ class AppsGroupCell: UICollectionViewCell {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         horizontalController.view.translatesAutoresizingMaskIntoConstraints = false
-       
+        
         addSubview(horizontalController.view)
         addSubview(titleLabel)
+        
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         
@@ -31,6 +32,7 @@ class AppsGroupCell: UICollectionViewCell {
         horizontalController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
         horizontalController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         horizontalController.view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

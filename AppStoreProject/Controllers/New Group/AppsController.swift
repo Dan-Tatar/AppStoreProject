@@ -19,6 +19,13 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     private let reuseIdentifier = "CellID"
     private let headerCell = "headerCell"
     
+    let activityIndicator: UIActivityIndicatorView = {
+    let aI = UIActivityIndicatorView(style: .whiteLarge)
+        aI.color = .black
+
+        return aI
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,24 +33,32 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
 
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCell)
         collectionView.backgroundColor = .white
+        view.addSubview(activityIndicator)
+         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         
+        activityIndicator.startAnimating()
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        activityIndicator.widthAnchor.constraint(equalToConstant: 44).isActive = true
+
         fetchData()
-        
-     
     }
     
+    
     fileprivate func fetchData() {
+      
         var group1: AppGroup?
         var group2: AppGroup?
         var group3: AppGroup?
-        var group4: AppGroup?
         
         // Uses Dispatch group allow syncronization of the multiple fetch requests displayed in the collectionView
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
         Service.shared.fetchHeaderData(completion: { (apps, err) in
+           
             dispatchGroup.leave()
             if let err = err {
                 print ("Error is \(err)" )
@@ -57,6 +72,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         dispatchGroup.enter()
         Service.shared.fetchNewApps { (res, err)  in
+            
             dispatchGroup.leave()
             if let err = err {
                 print("Failed to load data", err)
@@ -93,6 +109,8 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
             if let group3 = group3 {
                 self.group.append(group3)
             }
+            self.activityIndicator.stopAnimating()
+
             self.collectionView.reloadData()
         }
     }
