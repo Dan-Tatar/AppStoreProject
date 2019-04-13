@@ -24,6 +24,8 @@
 		10183DE822272CA00049BA5A /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE722272CA00049BA5A /* AppsSearchController.swift */; };
 		10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DE92227353A0049BA5A /* SearchResultsCell.swift */; };
 		10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DEF222E69950049BA5A /* VerticalStackView.swift */; };
+		102723E12261ED1E0069A281 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102723E02261ED1E0069A281 /* AppDetailController.swift */; };
+		102723E32262146A0069A281 /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102723E22262146A0069A281 /* AppDetailCell.swift */; };
 		104C03AA22325AD8005D320E /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03A922325AD8005D320E /* SearchResult.swift */; };
 		104C03AD22328426005D320E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03AC22328426005D320E /* Services.swift */; };
 		1055730A223C22CB002A3832 /* AppsPageHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10557309223C22CB002A3832 /* AppsPageHeder.swift */; };
@@ -80,6 +82,8 @@
 		10183DE722272CA00049BA5A /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		10183DE92227353A0049BA5A /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		10183DEF222E69950049BA5A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		102723E02261ED1E0069A281 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		102723E22262146A0069A281 /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		104C03A922325AD8005D320E /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		104C03AC22328426005D320E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		10557309223C22CB002A3832 /* AppsPageHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeder.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				1055730B223C2892002A3832 /* AppHeaderCollectionView.swift */,
 				1010736B2235803F00080824 /* AppsController.swift */,
 				101073732236556200080824 /* AppsHorizontalController.swift */,
+				102723E02261ED1E0069A281 /* AppDetailController.swift */,
 			);
 			name = Apps;
 			path = "New Group";
@@ -220,6 +225,7 @@
 				10B6E8A522379BC9005EC6F9 /* AppsHorozontalCell.swift */,
 				10557309223C22CB002A3832 /* AppsPageHeder.swift */,
 				1055730D223C2A9F002A3832 /* AppHeaderCollectionCell.swift */,
+				102723E22262146A0069A281 /* AppDetailCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102723E12261ED1E0069A281 /* AppDetailController.swift in Sources */,
 				10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */,
 				101073742236556200080824 /* AppsHorizontalController.swift in Sources */,
 				10557310223D640A002A3832 /* AppsModel.swift in Sources */,
@@ -521,6 +528,7 @@
 				104C03AD22328426005D320E /* Services.swift in Sources */,
 				1055730E223C2A9F002A3832 /* AppHeaderCollectionCell.swift in Sources */,
 				1055731222465B52002A3832 /* SocialApps.swift in Sources */,
+				102723E32262146A0069A281 /* AppDetailCell.swift in Sources */,
 				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
