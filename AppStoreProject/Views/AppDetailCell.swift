@@ -36,10 +36,10 @@ class AppDetailCell: UICollectionViewCell {
         
         let stackView = VerticalStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
-                appImage,
-                VerticalStackView(arrangedSubviews: [nameLabel,
-                                                     descriptionLabel,
-                                                     priceButton], spacing: 0)]),
+                        appImage,
+                        VerticalStackView(arrangedSubviews: [nameLabel,
+                                                             descriptionLabel,
+                                                             priceButton], spacing: 0)], customSpacing: 16),
             whatsNewLabel,
             releaseNotesLabel], spacing: 16)
     
@@ -56,5 +56,12 @@ class AppDetailCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension UIStackView {
+    convenience init(arrangedSubviews: [UIView], customSpacing: CGFloat = 0) {
+        self.init(arrangedSubviews:  arrangedSubviews)
+        self.spacing = customSpacing
     }
 }
