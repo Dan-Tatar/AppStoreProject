@@ -26,8 +26,13 @@ class AppDetailCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        priceButton.layer.cornerRadius = 4
+        priceButton.layer.cornerRadius = 15
         priceButton.backgroundColor = .blue
+        priceButton.setTitleColor(.white, for: .normal)
+        priceButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        priceButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        priceButton.translatesAutoresizingMaskIntoConstraints = false
         
         appImage.backgroundColor = UIColor.blue
         appImage.heightAnchor.constraint(equalToConstant: 140).isActive = true
@@ -39,7 +44,8 @@ class AppDetailCell: UICollectionViewCell {
                         appImage,
                         VerticalStackView(arrangedSubviews: [nameLabel,
                                                              descriptionLabel,
-                                                             priceButton], spacing: 0)], customSpacing: 16),
+                                                             UIStackView(arrangedSubviews: [priceButton
+                                                                ,UIView()])], spacing: 0)], customSpacing: 16),
             whatsNewLabel,
             releaseNotesLabel], spacing: 16)
     

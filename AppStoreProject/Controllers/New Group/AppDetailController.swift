@@ -17,11 +17,17 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
            
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             Service.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, error) in
-                print(result!.results.first?.releaseNotes)
-                
+//                let app = result?.results.first
+//                self.app = app
+//                DispatchQueue.main.async {
+//                     self.collectionView.reloadData()
+//                }
             }
         }
     }
+    
+//    var app: Results?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -35,8 +41,9 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailCellId, for: indexPath) as! AppDetailCell
         
+//        cell.nameLabel.text = app?.trackName
         return cell
     }
     
