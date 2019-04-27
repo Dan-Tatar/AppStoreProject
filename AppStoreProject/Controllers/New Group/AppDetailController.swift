@@ -17,16 +17,16 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
            
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             Service.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, error) in
-//                let app = result?.results.first
-//                self.app = app
-//                DispatchQueue.main.async {
-//                     self.collectionView.reloadData()
-//                }
+                let app = result?.results.first
+                self.app = app
+                DispatchQueue.main.async {
+                     self.collectionView.reloadData()
+                }
             }
         }
     }
     
-//    var app: Results?
+    var app: Results?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,9 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailCellId, for: indexPath) as! AppDetailCell
         
-//        cell.nameLabel.text = app?.trackName
+        cell.nameLabel.text = app?.trackName
+        cell.releaseNotesLabel.text = app?.releaseNotes
+        cell.appImage.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
         return cell
     }
     
