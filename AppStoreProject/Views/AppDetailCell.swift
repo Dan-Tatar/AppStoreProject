@@ -10,6 +10,14 @@ import UIKit
 
 class AppDetailCell: UICollectionViewCell {
     
+    var app: Results! {
+        didSet {
+            nameLabel.text = app?.trackName
+            releaseNotesLabel.text = app?.releaseNotes
+            appImage.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
+            priceButton.setTitle(app?.formattedPrice, for: .normal)
+        }
+    }
     
     var appImage = UIImageView(cornerRadius: 8)
     
@@ -19,7 +27,7 @@ class AppDetailCell: UICollectionViewCell {
     
     let whatsNewLabel = UILabel(text: "What's new", font: UIFont.boldSystemFont(ofSize: 20))
     
-    let releaseNotesLabel = UILabel(text: "Release notes", font: UIFont.boldSystemFont(ofSize: 20))
+    let releaseNotesLabel = UILabel(text: "Release notes", font: UIFont.systemFont(ofSize: 14))
     
     let priceButton = UIButton(title: "Get")
     
@@ -38,6 +46,7 @@ class AppDetailCell: UICollectionViewCell {
         appImage.heightAnchor.constraint(equalToConstant: 140).isActive = true
         appImage.widthAnchor.constraint(equalToConstant: 140).isActive = true
         
+        releaseNotesLabel.numberOfLines = 0
         
         let stackView = VerticalStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
