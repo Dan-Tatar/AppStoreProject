@@ -14,6 +14,7 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     private let reuseIdentifier = "CellID"
     
+    
     var didSelectClosure: ((FeedResult) -> ())?
     
     
