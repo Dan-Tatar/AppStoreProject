@@ -142,7 +142,13 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
             cell.titleLabel.text = group[indexPath.item].feed.title
             cell.horizontalController.appGroup = group[indexPath.row]
             cell.horizontalController.collectionView.reloadData()
-       
+            cell.horizontalController.didSelectClosure = { [weak self] result in
+            
+               let vc = AppDetailController()
+                vc.appId = result.id
+                vc.navigationItem.title = result.name
+                self?.navigationController?.pushViewController(vc, animated: true)
+        }
         return cell
     }
     

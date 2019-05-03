@@ -14,6 +14,10 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     private let reuseIdentifier = "CellID"
     
+    
+    var didSelectClosure: ((FeedResult) -> ())?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +54,11 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = appGroup?.feed.results[indexPath.row] {
+        didSelectClosure?(app)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return lineSpacing
     }

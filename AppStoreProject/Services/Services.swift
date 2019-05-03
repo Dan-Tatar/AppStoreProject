@@ -56,7 +56,7 @@ class Service {
             print("Error with URL")
         }
 
-        URLSession.shared.dataTask(with: urlString){ (data, result, err) in
+            URLSession.shared.dataTask(with: urlString){ (data, result, err) in
             if let err = err {
                 completion(nil, err)
             }
