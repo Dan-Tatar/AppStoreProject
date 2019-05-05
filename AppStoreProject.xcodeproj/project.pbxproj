@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		100CB086227B77DC00DF60F0 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB085227B77DC00DF60F0 /* PreviewCell.swift */; };
 		100CB088227B810900DF60F0 /* PreviewHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB087227B810900DF60F0 /* PreviewHorizontalController.swift */; };
+		100CB08C227C39D100DF60F0 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB08B227C39D100DF60F0 /* ScreenshotCell.swift */; };
 		1010736C2235803F00080824 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736B2235803F00080824 /* AppsController.swift */; };
 		1010736E223581CD00080824 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736D223581CD00080824 /* BaseListController.swift */; };
 		10107370223590F300080824 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736F223590F300080824 /* AppsGroupCell.swift */; };
@@ -63,6 +64,7 @@
 		082A124DB22BE9D7B2EA1657 /* Pods-AppStoreProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProjectTests/Pods-AppStoreProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		100CB085227B77DC00DF60F0 /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
 		100CB087227B810900DF60F0 /* PreviewHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHorizontalController.swift; sourceTree = "<group>"; };
+		100CB08B227C39D100DF60F0 /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		1010736B2235803F00080824 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 		1010736D223581CD00080824 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseListController.swift; path = /Users/dantatar/src/AppStoreProject/AppStoreProject/Controllers/BaseListController.swift; sourceTree = "<absolute>"; };
 		1010736F223590F300080824 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				1055730D223C2A9F002A3832 /* AppHeaderCollectionCell.swift */,
 				102723E22262146A0069A281 /* AppDetailCell.swift */,
 				100CB085227B77DC00DF60F0 /* PreviewCell.swift */,
+				100CB08B227C39D100DF60F0 /* ScreenshotCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				102723E12261ED1E0069A281 /* AppDetailController.swift in Sources */,
 				10183DEA2227353A0049BA5A /* SearchResultsCell.swift in Sources */,
 				101073742236556200080824 /* AppsHorizontalController.swift in Sources */,
+				100CB08C227C39D100DF60F0 /* ScreenshotCell.swift in Sources */,
 				10557310223D640A002A3832 /* AppsModel.swift in Sources */,
 				10183DE62225CD1C0049BA5A /* BaseTabBarController.swift in Sources */,
 				104C03AA22325AD8005D320E /* SearchResult.swift in Sources */,
