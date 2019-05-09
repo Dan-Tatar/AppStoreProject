@@ -13,8 +13,16 @@ class ReviewsCell: UICollectionViewCell {
     let reivewsController = ReviewsController()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
+
         addSubview(reivewsController.view)
+        
+        reivewsController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        reivewsController.view.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
+        reivewsController.view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
+        reivewsController.view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 12).isActive = true
+        reivewsController.view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 12).isActive = true
+      
     }
     
     required init?(coder aDecoder: NSCoder) {
