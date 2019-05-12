@@ -13,6 +13,7 @@
 		100CB08E22807EB200DF60F0 /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB08D22807EB200DF60F0 /* ReviewsCell.swift */; };
 		100CB0902280869E00DF60F0 /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB08F2280869E00DF60F0 /* ReviewsController.swift */; };
 		100CB09222808A9400DF60F0 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB09122808A9400DF60F0 /* CommentsCell.swift */; };
+		100CB0942287247500DF60F0 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB0932287247500DF60F0 /* Reviews.swift */; };
 		1010736C2235803F00080824 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736B2235803F00080824 /* AppsController.swift */; };
 		1010736E223581CD00080824 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736D223581CD00080824 /* BaseListController.swift */; };
 		10107370223590F300080824 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736F223590F300080824 /* AppsGroupCell.swift */; };
@@ -71,6 +72,7 @@
 		100CB08D22807EB200DF60F0 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		100CB08F2280869E00DF60F0 /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		100CB09122808A9400DF60F0 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		100CB0932287247500DF60F0 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		1010736B2235803F00080824 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 		1010736D223581CD00080824 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseListController.swift; path = /Users/dantatar/src/AppStoreProject/AppStoreProject/Controllers/BaseListController.swift; sourceTree = "<absolute>"; };
 		1010736F223590F300080824 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				104C03A922325AD8005D320E /* SearchResult.swift */,
 				1055730F223D640A002A3832 /* AppsModel.swift */,
 				1055731122465B52002A3832 /* SocialApps.swift */,
+				100CB0932287247500DF60F0 /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				1055730E223C2A9F002A3832 /* AppHeaderCollectionCell.swift in Sources */,
 				100CB088227B810900DF60F0 /* PreviewHorizontalController.swift in Sources */,
 				1055731222465B52002A3832 /* SocialApps.swift in Sources */,
+				100CB0942287247500DF60F0 /* Reviews.swift in Sources */,
 				102723E32262146A0069A281 /* AppDetailCell.swift in Sources */,
 				10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */,
 				100CB09222808A9400DF60F0 /* CommentsCell.swift in Sources */,

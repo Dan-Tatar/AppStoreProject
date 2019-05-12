@@ -11,6 +11,7 @@ import UIKit
 class ReviewsCell: UICollectionViewCell {
     
     let reivewsController = ReviewsController()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 

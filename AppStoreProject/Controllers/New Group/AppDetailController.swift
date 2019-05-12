@@ -23,12 +23,30 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
                 self.app = app
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    
+                }
+            }
+            let reviewsURL = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
+            Service.shared.fetchGenericJSONData(urlString: reviewsURL) { (reviews: Reviews?, err) in
+//                let reviews = reviews?.feed.entry.forEach({ (entry) in
+//                    print(" The enntry is \(entry.title.label))")
+//                })
+                
+                self.reviews = reviews
+                
+                if let err = err {
+                    print("Failed to decode reviews", err)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    
                 }
             }
         }
     }
     
     var app: Results?
+    var reviews: Reviews?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +74,10 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewsCell, for: indexPath) as! ReviewsCell
+            cell.reivewsController.reviews = self.reviews
+          
             return cell
-    }
+     }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 

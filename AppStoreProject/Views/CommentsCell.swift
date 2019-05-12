@@ -10,6 +10,12 @@ import UIKit
 
 class CommentsCell: UICollectionViewCell {
     
+    
+    var reviews: Entry! {
+        didSet {
+            titleLabel.text = reviews.title.label
+        }
+    }
     let titleLabel = UILabel(text: "Review Title", font: .boldSystemFont(ofSize: 18))
     let authorLabel = UILabel(text: "Author", font: .systemFont(ofSize: 16))
     let starsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
