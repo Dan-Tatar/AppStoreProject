@@ -31,19 +31,20 @@ class CommentsCell: UICollectionViewCell {
       let stackView = VerticalStackView(arrangedSubviews:
         [UIStackView(arrangedSubviews:
                      [titleLabel,
-                      UIView(),
-                      authorLabel]),
+                      authorLabel], customSpacing: 8),
         starsLabel,
         bodyLabel], spacing: 12)
 
+        titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
+        
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
 
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         stackView.backgroundColor = .black
     
     }
