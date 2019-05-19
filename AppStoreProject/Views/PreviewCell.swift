@@ -11,19 +11,26 @@ import UIKit
 class PreviewCell: UICollectionViewCell {
     
     let previewCollectionView = PreviewHorizontalController()
+    let previewLabel = UILabel(text: "Preview", font: UIFont.boldSystemFont(ofSize: 20))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
         
         addSubview(previewCollectionView.view)
-        
+        addSubview(previewLabel)
         previewCollectionView.view.translatesAutoresizingMaskIntoConstraints = false
         
-        previewCollectionView.view.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+
         previewCollectionView.view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
         previewCollectionView.view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         previewCollectionView.view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        
+        previewLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        previewLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        previewLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        previewLabel.bottomAnchor.constraint(equalTo: previewCollectionView.view.topAnchor, constant: -8).isActive = true
+        previewLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
