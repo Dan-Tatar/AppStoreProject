@@ -23,7 +23,6 @@ class AppsHorizontalCell: UICollectionViewCell {
         
         imageView.backgroundColor = .purple
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
         
         getButton.backgroundColor = UIColor(white: 0.95, alpha: 1)
         getButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
