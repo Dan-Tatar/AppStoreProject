@@ -24,8 +24,11 @@ class CommentsCell: UICollectionViewCell {
         var arrangedSubviews = [UIView]()
         (0..<5).forEach({ (_) in
             let imageView = UIImageView(image: #imageLiteral(resourceName: "star"))
+            imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
             arrangedSubviews.append(imageView)
         })
+        arrangedSubviews.append(UIView())
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         
         return stackView
