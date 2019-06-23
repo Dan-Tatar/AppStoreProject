@@ -57,7 +57,6 @@ class CommentsCell: UICollectionViewCell {
         
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         stackView.backgroundColor = .black
         
