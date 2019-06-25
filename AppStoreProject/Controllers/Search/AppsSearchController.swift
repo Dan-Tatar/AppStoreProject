@@ -56,7 +56,9 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             
         Service.shared.fetchApps(searchTerm: searchText) { (res, err) in
-            
+            if let err = err {
+                print("There is an error" , err)
+            }
           
             self.appResults = res?.results ?? []
             
