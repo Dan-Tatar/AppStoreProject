@@ -144,8 +144,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
             cell.horizontalController.collectionView.reloadData()
             cell.horizontalController.didSelectClosure = { [weak self] result in
             
-               let vc = AppDetailController()
-                vc.appId = result.id
+               let vc = AppDetailController(appId: result.id)
                 vc.navigationItem.title = result.name
                 self?.navigationController?.pushViewController(vc, animated: true)
         }
