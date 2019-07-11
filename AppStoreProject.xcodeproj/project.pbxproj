@@ -15,7 +15,6 @@
 		100CB09222808A9400DF60F0 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB09122808A9400DF60F0 /* CommentsCell.swift */; };
 		100CB0942287247500DF60F0 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CB0932287247500DF60F0 /* Reviews.swift */; };
 		1010736C2235803F00080824 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736B2235803F00080824 /* AppsController.swift */; };
-		1010736E223581CD00080824 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736D223581CD00080824 /* BaseListController.swift */; };
 		10107370223590F300080824 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010736F223590F300080824 /* AppsGroupCell.swift */; };
 		101073722236535500080824 /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101073712236535500080824 /* ExtensionUILabel.swift */; };
 		101073742236556200080824 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101073732236556200080824 /* AppsHorizontalController.swift */; };
@@ -33,6 +32,7 @@
 		10183DF0222E69950049BA5A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10183DEF222E69950049BA5A /* VerticalStackView.swift */; };
 		102723E12261ED1E0069A281 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102723E02261ED1E0069A281 /* AppDetailController.swift */; };
 		102723E32262146A0069A281 /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102723E22262146A0069A281 /* AppDetailCell.swift */; };
+		102E171222D734BB0089EA8D /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102E171122D734BB0089EA8D /* BaseListController.swift */; };
 		104C03AA22325AD8005D320E /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03A922325AD8005D320E /* SearchResult.swift */; };
 		104C03AD22328426005D320E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C03AC22328426005D320E /* Services.swift */; };
 		1055730A223C22CB002A3832 /* AppsPageHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10557309223C22CB002A3832 /* AppsPageHeder.swift */; };
@@ -74,7 +74,6 @@
 		100CB09122808A9400DF60F0 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		100CB0932287247500DF60F0 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		1010736B2235803F00080824 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
-		1010736D223581CD00080824 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseListController.swift; path = /Users/dantatar/src/AppStoreProject/AppStoreProject/Controllers/BaseListController.swift; sourceTree = "<absolute>"; };
 		1010736F223590F300080824 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		101073712236535500080824 /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		101073732236556200080824 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		10183DEF222E69950049BA5A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		102723E02261ED1E0069A281 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		102723E22262146A0069A281 /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
+		102E171122D734BB0089EA8D /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		104C03A922325AD8005D320E /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		104C03AC22328426005D320E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		10557309223C22CB002A3832 /* AppsPageHeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeder.swift; sourceTree = "<group>"; };
@@ -253,9 +253,9 @@
 		10183DF1222E69AD0049BA5A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1010736D223581CD00080824 /* BaseListController.swift */,
 				10183DEF222E69950049BA5A /* VerticalStackView.swift */,
 				101073712236535500080824 /* ExtensionUILabel.swift */,
+				102E171122D734BB0089EA8D /* BaseListController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -540,7 +540,6 @@
 				1010736C2235803F00080824 /* AppsController.swift in Sources */,
 				100CB0902280869E00DF60F0 /* ReviewsController.swift in Sources */,
 				10183DE822272CA00049BA5A /* AppsSearchController.swift in Sources */,
-				1010736E223581CD00080824 /* BaseListController.swift in Sources */,
 				100CB086227B77DC00DF60F0 /* PreviewCell.swift in Sources */,
 				1055730A223C22CB002A3832 /* AppsPageHeder.swift in Sources */,
 				10183DBD2225CCB50049BA5A /* AppStoreProject.xcdatamodeld in Sources */,
@@ -548,6 +547,7 @@
 				10107370223590F300080824 /* AppsGroupCell.swift in Sources */,
 				10183DB72225CCB50049BA5A /* ViewController.swift in Sources */,
 				100CB08E22807EB200DF60F0 /* ReviewsCell.swift in Sources */,
+				102E171222D734BB0089EA8D /* BaseListController.swift in Sources */,
 				10183DB52225CCB50049BA5A /* AppDelegate.swift in Sources */,
 				101073722236535500080824 /* ExtensionUILabel.swift in Sources */,
 				104C03AD22328426005D320E /* Services.swift in Sources */,

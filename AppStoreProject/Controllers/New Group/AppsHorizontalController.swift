@@ -35,10 +35,18 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     }
     
     var lineSpacing: CGFloat = 10
+    var doubleLineSpacing: CGFloat {
+        return lineSpacing * 2
+    }
+    
     var topBottomPadding: CGFloat = 12
+    var doubleTopBButtomSpacing: CGFloat {
+        
+        return topBottomPadding * 2
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = (view.frame.height - 2 * topBottomPadding - 2 * lineSpacing - 16) / 3
+        let height: CGFloat = (view.frame.height - doubleLineSpacing - doubleTopBButtomSpacing - 16) / 3
         let width: CGFloat = 16 + 16
         return CGSize(width: view.frame.width - width - 20, height: height)
     }
