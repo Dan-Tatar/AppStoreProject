@@ -49,6 +49,7 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
         let height: CGFloat = (view.frame.height - doubleLineSpacing - doubleTopBButtomSpacing - 16) / 3
         let width: CGFloat = 16 + 16
         return CGSize(width: view.frame.width - width - 20, height: height)
+        print(width)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
