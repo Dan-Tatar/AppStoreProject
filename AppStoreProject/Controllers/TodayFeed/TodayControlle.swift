@@ -32,6 +32,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         return 4
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Animate")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 64, height: 400)
     }
