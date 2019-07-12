@@ -22,7 +22,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: todayCell)
         
-    }  
+    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCell, for: indexPath)
@@ -33,10 +33,15 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         return 4
     }
     
+    var animationTransitionController: UIViewController!
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
-        let redView = UIView()
-        redView.backgroundColor = .red
+        let animationTransitionController = AnimationTransitionController()
+        animationTransitionController.view.backgroundColor = .white
+        
+        let redView = animationTransitionController.view!
+
         redView.layer.cornerRadius = 16
         
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
@@ -49,10 +54,17 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         redView.frame = startingFrame
         view.addSubview(redView)
         
+        // calling this for the view to render itself and call the methods from animationTransitionController
+        addChild(animationTransitionController)
+        
+        self.animationTransitionController = animationTransitionController
+        
         self.startingFrame = startingFrame
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             redView.frame = self.view.frame
+            
+            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
         }, completion: nil)
     }
     
@@ -62,8 +74,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             gesture.view?.frame = self.startingFrame ?? .zero
+             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
         }, completion: { _ in
             gesture.view?.removeFromSuperview()
+            self.animationTransitionController.removeFromParent()
            }
         )
     }
