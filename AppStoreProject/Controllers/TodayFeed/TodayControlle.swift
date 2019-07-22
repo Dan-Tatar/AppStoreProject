@@ -43,13 +43,17 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         let animationTransitionController = AnimationTransitionController()
+        animationTransitionController.dismissHandler = {
+            self.handleRemoveRedView()
+        }
         animationTransitionController.view.backgroundColor = .white
         
-        let redView = animationTransitionController.view!
+        let fullScreenView = animationTransitionController.view!
 
-        redView.layer.cornerRadius = 16
+        fullScreenView.layer.cornerRadius = 16
         
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
+    
+        
         guard let cell = collectionView.cellForItem(at: indexPath) else {
             return
         }
@@ -57,7 +61,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         // absolute coordinate of frame
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
 //        redView.frame = startingFrame
-        view.addSubview(redView)
+        view.addSubview(fullScreenView)
         
         // calling this for the view to render itself and call the methods from animationTransitionController
         addChild(animationTransitionController)
@@ -66,12 +70,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         self.startingFrame = startingFrame
         
-        redView.translatesAutoresizingMaskIntoConstraints = false
+        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
         
-        topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
-        widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
-        heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
         
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
         self.view.layoutIfNeeded()
@@ -90,7 +94,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     var startingFrame: CGRect?
     
-    @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
+    @objc func handleRemoveRedView() {
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
            

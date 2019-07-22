@@ -10,6 +10,7 @@ import UIKit
 
 class AnimationTransitionController: UITableViewController {
     
+    var dismissHandler: (() -> ())?
     
     private let cellId = "cellId"
     
@@ -18,30 +19,23 @@ class AnimationTransitionController: UITableViewController {
         
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
+        tableView.allowsSelection = false
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 450
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            
-            return AppTransitionHeaderCell()
-//            let cell = UITableViewCell()
-//            let todayCell = TodayCell()
-//            cell.addSubview(todayCell)
-//            todayCell.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-//            todayCell.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-//            todayCell.heightAnchor.constraint(equalToConstant: 250).isActive = true
-//            todayCell.widthAnchor.constraint(equalToConstant: 250).isActive = true
-//            todayCell.translatesAutoresizingMaskIntoConstraints = false
-            
+            let headerCell = AppTransitionHeaderCell()
+            headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+            return headerCell
         }
         let cell = AnimationTransitionDescriptionCell()
-        
         return cell
+    }
+    
+    @objc fileprivate func handleDismiss(button: UIButton) {
+        button.isHidden = true
+        dismissHandler?()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
