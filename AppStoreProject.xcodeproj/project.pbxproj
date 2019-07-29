@@ -256,9 +256,7 @@
 				100CB08B227C39D100DF60F0 /* ScreenshotCell.swift */,
 				100CB08D22807EB200DF60F0 /* ReviewsCell.swift */,
 				100CB09122808A9400DF60F0 /* CommentsCell.swift */,
-				10E8BCF822D23D7800128E9B /* TodayFeedCell.swift */,
-				102E171522D8A1B30089EA8D /* AnimationTransitionDescriptionCell.swift */,
-				102E17B322E0D08E0089EA8D /* AnimationTrasitionHeaderCell.swift */,
+				1055872522EF2927006535FA /* Today */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,7 +276,7 @@
 			children = (
 				100DB21D2258EE8500B6A1B9 /* Search */,
 				100DB21E2258EE9B00B6A1B9 /* Apps */,
-				10E8BCF722D23A7900128E9B /* TodayFeed */,
+				10E8BCF722D23A7900128E9B /* Today */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -294,13 +292,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		10E8BCF722D23A7900128E9B /* TodayFeed */ = {
+		1055872522EF2927006535FA /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				10E8BCF822D23D7800128E9B /* TodayFeedCell.swift */,
+				102E17B322E0D08E0089EA8D /* AnimationTrasitionHeaderCell.swift */,
+				102E171522D8A1B30089EA8D /* AnimationTransitionDescriptionCell.swift */,
+			);
+			name = Today;
+			sourceTree = "<group>";
+		};
+		10E8BCF722D23A7900128E9B /* Today */ = {
 			isa = PBXGroup;
 			children = (
 				10E8BCFA22D2452800128E9B /* TodayControlle.swift */,
 				102E171322D88E450089EA8D /* AnimationTransitionController.swift */,
 			);
-			path = TodayFeed;
+			path = Today;
 			sourceTree = "<group>";
 		};
 		9B47169A716CEC504829F0BF /* Frameworks */ = {

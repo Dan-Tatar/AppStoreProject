@@ -22,13 +22,15 @@ class AppTransitionHeaderCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
        addSubview(todayCell)
-        addSubview(closeButton)
+       addSubview(closeButton)
         
-        todayCell.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        todayCell.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        todayCell.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        todayCell.widthAnchor.constraint(equalToConstant: 250).isActive = true
         todayCell.translatesAutoresizingMaskIntoConstraints = false
+        
+        todayCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        todayCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        todayCell.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        todayCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+  
         
         closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12).isActive = true
