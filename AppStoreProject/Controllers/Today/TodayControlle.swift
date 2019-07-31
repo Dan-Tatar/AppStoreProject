@@ -14,6 +14,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let todayCell = "todayCell"
     
+    let items = [
+        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
+        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: .yellow)
+    ]
+       
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,12 +31,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCell, for: indexPath) as! TodayCell
+        cell.representedItem = items[indexPath.row]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return items.count
     }
     
     var animationTransitionController: UIViewController!
@@ -43,6 +50,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         let animationTransitionController = AnimationTransitionController()
+        animationTransitionController.todayItem = items[indexPath.row]
         animationTransitionController.dismissHandler = {
             self.handleRemoveRedView()
         }

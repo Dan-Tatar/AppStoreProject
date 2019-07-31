@@ -15,12 +15,23 @@ class TodayCell: UICollectionViewCell {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "garden"))
     let descriptionLabel = UILabel(text: "All the tools and apps you need to intelligently organize your life the right way", font: .systemFont(ofSize: 16))
     
+    var representedItem: TodayItem! {
+        didSet {
+            categoryLabel.text = representedItem.category
+            titleLab.text = representedItem.title
+            imageView.image = representedItem.image
+            descriptionLabel.text = representedItem.description
+            backgroundColor = representedItem.backgroundColor
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         descriptionLabel.numberOfLines = 3
         backgroundColor = .white
         layer.cornerRadius = 16
+        clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         
         let imageContainerView = UIView()

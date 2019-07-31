@@ -10,6 +10,7 @@ import UIKit
 
 class AnimationTransitionController: UITableViewController {
     
+    var todayItem: TodayItem?
     var dismissHandler: (() -> ())?
     
     private let cellId = "cellId"
@@ -27,6 +28,8 @@ class AnimationTransitionController: UITableViewController {
         if indexPath.row == 0 {
             let headerCell = AppTransitionHeaderCell()
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+            headerCell.todayCell.representedItem = todayItem
+            
             return headerCell
         }
         let cell = AnimationTransitionDescriptionCell()
