@@ -24,6 +24,7 @@ class TodayCell: UICollectionViewCell {
             backgroundColor = representedItem.backgroundColor
         }
     }
+    var topConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,10 +48,14 @@ class TodayCell: UICollectionViewCell {
         addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24).isActive = true
+//        stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24).isActive = true
+        
+        self.topConstraint = stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24)
+        self.topConstraint.isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

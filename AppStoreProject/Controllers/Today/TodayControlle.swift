@@ -16,7 +16,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     let items = [
         TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
-        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: .yellow)
+        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1))
     ]
        
     
@@ -40,7 +40,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         return items.count
     }
     
-    var animationTransitionController: UIViewController!
+    var animationTransitionController: UITableViewController!
     
     var topConstraint: NSLayoutConstraint?
     var leadingConstraint: NSLayoutConstraint?
@@ -60,7 +60,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
 
         fullScreenView.layer.cornerRadius = 16
         
-    
+        self.collectionView.isUserInteractionEnabled = false
         
         guard let cell = collectionView.cellForItem(at: indexPath) else {
             return
@@ -97,6 +97,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.view.layoutIfNeeded()
         
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+            
+            guard let cell = self.animationTransitionController.tableView.cellForRow(at: [0, 0]) as? AppTransitionHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
+            
         }, completion: nil)
     }
     
@@ -117,9 +122,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
             
+            guard let cell = self.animationTransitionController.tableView.cellForRow(at: [0, 0]) as? AppTransitionHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
+            
         }, completion: { _ in
             self.animationTransitionController.view.removeFromSuperview()
             self.animationTransitionController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
            }
         )
     }

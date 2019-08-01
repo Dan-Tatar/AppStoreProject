@@ -31,7 +31,7 @@ class AppTransitionHeaderCell: UITableViewCell {
         todayCell.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         todayCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
   
-        closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 44).isActive = true
         closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12).isActive = true
         closeButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         closeButton.widthAnchor.constraint(equalToConstant: 38).isActive = true

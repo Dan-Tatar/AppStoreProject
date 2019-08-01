@@ -21,6 +21,10 @@ class AnimationTransitionController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        let height = UIApplication.shared.statusBarFrame.height
+        tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,6 +33,7 @@ class AnimationTransitionController: UITableViewController {
             let headerCell = AppTransitionHeaderCell()
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             headerCell.todayCell.representedItem = todayItem
+            headerCell.todayCell.layer.cornerRadius = 0
             
             return headerCell
         }
