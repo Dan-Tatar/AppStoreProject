@@ -9,10 +9,10 @@
 import UIKit
 
 
-class TodayMultipleAppCell: UICollectionViewCell {
+class TodayMultipleAppCell: BaseTodayCell {
     
     
-    var todayItem: TodayItem! {
+    override var todayItem: TodayItem! {
         didSet {
             categoryLabel.text = todayItem.category
             titleLab.text = todayItem.title

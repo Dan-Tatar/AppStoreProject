@@ -8,20 +8,20 @@
 
 import UIKit
 
-class TodayCell: UICollectionViewCell {
+class TodayCell: BaseTodayCell {
     
     let categoryLabel = UILabel(text: "LIFE HACK", font: .boldSystemFont(ofSize: 20))
     let titleLab = UILabel(text: "Utilizing your Time", font: .boldSystemFont(ofSize: 26))
     let imageView = UIImageView(image: #imageLiteral(resourceName: "garden"))
     let descriptionLabel = UILabel(text: "All the tools and apps you need to intelligently organize your life the right way", font: .systemFont(ofSize: 16))
     
-    var representedItem: TodayItem! {
+    override var todayItem: TodayItem! {
         didSet {
-            categoryLabel.text = representedItem.category
-            titleLab.text = representedItem.title
-            imageView.image = representedItem.image
-            descriptionLabel.text = representedItem.description
-            backgroundColor = representedItem.backgroundColor
+            categoryLabel.text = todayItem.category
+            titleLab.text = todayItem.title
+            imageView.image = todayItem.image
+            descriptionLabel.text = todayItem.description
+            backgroundColor = todayItem.backgroundColor
         }
     }
     var topConstraint: NSLayoutConstraint!

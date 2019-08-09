@@ -12,13 +12,10 @@ import UIKit
 class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
-    fileprivate let todayCell = "todayCell"
-    fileprivate let multipleAppCellID = "multipleAppCellID"
-    
     let items = [
-        TodayItem(category: "THE DAILY LIST", title: "Test Drive These Car Play Apps", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white),
-        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
-        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1))
+        TodayItem(category: "THE DAILY LIST", title: "Test Drive These Car Play Apps", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
+        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1), cellType: .single)
     ]
        
     
@@ -28,21 +25,26 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: todayCell)
-        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: multipleAppCellID)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
         
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: multipleAppCellID, for: indexPath) as! TodayMultipleAppCell
-            cell.todayItem = items[indexPath.item]
-            return cell
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCell, for: indexPath) as! TodayCell
-        cell.representedItem = items[indexPath.row]
+        let cellId = items[indexPath.row].cellType.rawValue
+        
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
+        
+        cell.todayItem = items[indexPath.row]
+//        if cellId == .multiple {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayItem.CellType.multiple.rawValue, for: indexPath) as! TodayMultipleAppCell
+//            cell.todayItem = items[indexPath.item]
+//            return cell
+//        }
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayItem.CellType.single.rawValue, for: indexPath) as! TodayCell
+//        cell.todayItem = items[indexPath.row]
 
         return cell
     }
