@@ -32,7 +32,7 @@ class AnimationTransitionController: UITableViewController {
         if indexPath.row == 0 {
             let headerCell = AppTransitionHeaderCell()
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-            headerCell.todayCell.todayItem = todayItem
+            headerCell.todayCell.representedItem = todayItem
             headerCell.todayCell.layer.cornerRadius = 0
             
             return headerCell
@@ -52,7 +52,7 @@ class AnimationTransitionController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 500
+            return 450
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
