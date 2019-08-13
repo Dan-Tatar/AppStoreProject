@@ -38,13 +38,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         
         cell.todayItem = items[indexPath.row]
-//        if cellId == .multiple {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayItem.CellType.multiple.rawValue, for: indexPath) as! TodayMultipleAppCell
-//            cell.todayItem = items[indexPath.item]
-//            return cell
-//        }
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayItem.CellType.single.rawValue, for: indexPath) as! TodayCell
-//        cell.todayItem = items[indexPath.row]
 
         return cell
     }
