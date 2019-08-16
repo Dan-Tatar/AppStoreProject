@@ -51,7 +51,7 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         return .init(width: view.frame.width, height: 58)
     }
     
-    fileprivate let spacing: CGFloat = 16
+    fileprivate let spacing: CGFloat = 18
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
