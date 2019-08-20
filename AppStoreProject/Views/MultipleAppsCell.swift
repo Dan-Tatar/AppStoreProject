@@ -23,6 +23,11 @@ class MultipleAppsCell: UICollectionViewCell {
     let companyLabel = UILabel(text: "Company name", font: UIFont.systemFont(ofSize: 13))
     let getButton = UIButton(title: "Get")
     
+    let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.3, alpha: 0.3)
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,6 +50,13 @@ class MultipleAppsCell: UICollectionViewCell {
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         stackView.spacing = 16
         stackView.alignment = .center
+        
+        addSubview(separatorView)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
