@@ -23,17 +23,17 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
             layout.scrollDirection = .horizontal
         }
         
-        Service.shared.fetchTopFreeApps { (results, err) in
-            
-            if let err = err {
-                print(err)
-            }
-            self.results = results?.feed.results ?? []
-     
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+//        Service.shared.fetchTopFreeApps { (results, err) in
+//            
+//            if let err = err {
+//                print(err)
+//            }
+//            self.results = results?.feed.results ?? []
+//     
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

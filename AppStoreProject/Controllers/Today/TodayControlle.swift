@@ -12,12 +12,23 @@ import UIKit
 class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
-    let items = [
-        TodayItem(category: "THE DAILY LIST", title: "Test Drive These Car Play Apps", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple),
-        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
-        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1), cellType: .single)
-    ]
-       
+//    var items = [
+//        TodayItem(category: "THE DAILY LIST", title: "Test Drive These Car Play Apps", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple),
+//        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
+//        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1), cellType: .single)
+//    ]
+    var items = [TodayItem]()
+    
+    let activityIndicatorView: UIActivityIndicatorView = {
+        var aiv = UIActivityIndicatorView(style: .whiteLarge)
+        aiv.startAnimating()
+        aiv.color = .darkGray
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
+    
+    var topFreeApps: AppGroup?
+    var topGroosingApps: AppGroup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +36,49 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         
+        activityIndicatorView.startAnimating()
+        
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
         collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
         
+        fetchData()
         
+        setupView()
+    }
+    
+    func fetchData() {
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        Service.shared.fetchTopFreeApps { (appGroup, err) in
+            self.topFreeApps = appGroup
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        Service.shared.fetchTopGrossingApps { (appGroup, err) in
+            self.topGroosingApps = appGroup
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("Finished fetching")
+            self.activityIndicatorView.stopAnimating()
+            self.items = [
+                TodayItem(category: "THE DAILY LIST", title: self.topGroosingApps?.feed.title ?? "", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps: self.topGroosingApps?.feed.results ?? []),
+                TodayItem(category: "THE DAILY LIST", title: self.topFreeApps?.feed.title ?? "" , image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps:  self.topFreeApps?.feed.results ?? []),
+            TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single, apps:  []),
+            ]
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func setupView() {
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
