@@ -68,7 +68,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.items = [
                 TodayItem(category: "THE DAILY LIST", title: self.topGroosingApps?.feed.title ?? "", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps: self.topGroosingApps?.feed.results ?? []),
                 TodayItem(category: "THE DAILY LIST", title: self.topFreeApps?.feed.title ?? "" , image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps:  self.topFreeApps?.feed.results ?? []),
-            TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single, apps:  []),
+                TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single, apps:  []),
             ]
             self.collectionView.reloadData()
         }
@@ -76,19 +76,21 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     func setupView() {
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(activityIndicatorView)
         activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
+        
         let cellId = items[indexPath.row].cellType.rawValue
         
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         
         cell.todayItem = items[indexPath.row]
-
+        
         return cell
     }
     
@@ -104,7 +106,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var heightConstraint: NSLayoutConstraint?
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+        
+        if items[indexPath.item].cellType == .multiple {
+            let fullController = TodayMultipleAppsController(mode: .fullscreen)
+            fullController.results = items[indexPath.item].apps
+            present(fullController, animated: true)
+            return
+        }
+        
         let animationTransitionController = AnimationTransitionController()
         animationTransitionController.todayItem = items[indexPath.row]
         animationTransitionController.dismissHandler = {

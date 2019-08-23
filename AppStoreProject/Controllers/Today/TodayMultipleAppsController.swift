@@ -12,8 +12,22 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
     
     let multipleAppsCellID = "multipleAppsCellID"
     
+    var closeButton: UIButton = {
+        var button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "close_button"), for: .normal)
+        button.tintColor = .darkGray
+
+        button.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        return button
+    }()
+    
     var results = [FeedResult]()
+    
     override func viewDidLoad() {
+        
+        if mode == .fullscreen {
+             setupCloseButton()
+        }
         
         collectionView.backgroundColor = .white
         collectionView.isScrollEnabled = false
@@ -23,17 +37,24 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
             layout.scrollDirection = .horizontal
         }
         
-//        Service.shared.fetchTopFreeApps { (results, err) in
-//            
-//            if let err = err {
-//                print(err)
-//            }
-//            self.results = results?.feed.results ?? []
-//     
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
+       
+    }
+    
+    func setupCloseButton() {
+        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(closeButton)
+        
+        closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: 38).isActive = true
+    }
+    
+    @objc func closeAction() {
+        
+        dismiss(animated: true, completion: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,6 +78,21 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
+    }
+    
+    fileprivate let mode: Mode
+    
+    enum Mode {
+        case small, fullscreen
+    }
+    
+    init(mode: Mode) {
+        self.mode = mode
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
    
 }
