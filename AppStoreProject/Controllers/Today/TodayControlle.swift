@@ -82,22 +82,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        let cellId = items[indexPath.row].cellType.rawValue
-        
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
-        
-        cell.todayItem = items[indexPath.row]
-        
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
     var animationTransitionController: UITableViewController!
     
     var topConstraint: NSLayoutConstraint?
@@ -197,6 +181,21 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.collectionView.isUserInteractionEnabled = true
            }
         )
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cellId = items[indexPath.row].cellType.rawValue
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
+        
+        cell.todayItem = items[indexPath.row]
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
