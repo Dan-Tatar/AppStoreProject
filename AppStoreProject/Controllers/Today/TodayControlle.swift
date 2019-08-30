@@ -11,12 +11,6 @@ import UIKit
 
 class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    
-//    var items = [
-//        TodayItem(category: "THE DAILY LIST", title: "Test Drive These Car Play Apps", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple),
-//        TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
-//        TodayItem(category: "HOLIDAYS", title: "Travel on a budget" , image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything", backgroundColor: #colorLiteral(red: 0.982188642, green: 0.9636412263, blue: 0.7271445394, alpha: 1), cellType: .single)
-//    ]
     var items = [TodayItem]()
     
     let activityIndicatorView: UIActivityIndicatorView = {
@@ -26,6 +20,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         aiv.hidesWhenStopped = true
         return aiv
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.superview?.setNeedsLayout()
+    }
     
     var topFreeApps: AppGroup?
     var topGroosingApps: AppGroup?
