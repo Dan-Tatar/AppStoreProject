@@ -43,7 +43,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tabBarController?.tabBar.setNeedsLayout()
+        tabBarController?.tabBar.superview?.setNeedsLayout()
     }
     
     func fetchData() {
@@ -94,7 +94,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         if items[indexPath.item].cellType == .multiple {
             let fullController = TodayMultipleAppsController(mode: .fullscreen)
             fullController.results = items[indexPath.item].apps
-            present(fullController, animated: true)
+            let navigationController = BackEnabledNavigationController(rootViewController: fullController)
+            present(navigationController, animated: true)
             return
         }
         
