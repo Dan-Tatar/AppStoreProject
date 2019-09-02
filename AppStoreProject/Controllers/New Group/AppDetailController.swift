@@ -54,15 +54,13 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         }
         let reviewsURL = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
         Service.shared.fetchGenericJSONData(urlString: reviewsURL) { (reviews: Reviews?, err) in
-            //                let reviews = reviews?.feed.entry.forEach({ (entry) in
-            //                    print(" The enntry is \(entry.title.label))")
-            //                })
-            
-            self.reviews = reviews
             
             if let err = err {
                 print("Failed to decode reviews", err)
             }
+            
+                self.reviews = reviews
+            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 
