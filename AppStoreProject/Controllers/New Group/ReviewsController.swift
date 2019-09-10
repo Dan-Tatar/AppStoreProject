@@ -41,6 +41,7 @@ class ReviewsController: BaseListController, UICollectionViewDelegateFlowLayout 
                 view.alpha = index >= ratingInt ? 0 : 1
             }
         }
+        
         return cell
     }
     
