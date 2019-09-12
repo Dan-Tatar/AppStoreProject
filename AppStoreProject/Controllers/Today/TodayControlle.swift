@@ -192,7 +192,32 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         cell.todayItem = items[indexPath.row]
         
+        (cell as? TodayMultipleAppCell)?.multipleAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleAppsTap)))
+        
         return cell
+    }
+    
+    @objc func handleMultipleAppsTap(gesture: UIGestureRecognizer) {
+        
+        let collectionView = gesture.view
+        
+        var superview = collectionView?.superview
+        
+        while superview != nil {
+            if let cell = superview as? TodayMultipleAppCell {
+                
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                
+                let apps = self.items[indexPath.item].apps
+                
+                let fullController = TodayMultipleAppsController(mode: .fullscreen)
+                fullController.results = apps
+                present(fullController, animated: true)
+                return
+            }
+            superview = superview?.superview
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
