@@ -212,7 +212,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
                 
                 let fullController = TodayMultipleAppsController(mode: .fullscreen)
                 fullController.results = apps
-                present(fullController, animated: true)
+                present(BackEnabledNavigationController(rootViewController: fullController) , animated: true)
                 return
             }
             superview = superview?.superview
