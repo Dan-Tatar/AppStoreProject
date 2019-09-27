@@ -32,8 +32,8 @@ class TodayCell: BaseTodayCell {
         descriptionLabel.numberOfLines = 3
         backgroundColor = .white
         layer.cornerRadius = 16
-        clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         let imageContainerView = UIView()
         imageContainerView.addSubview(imageView)

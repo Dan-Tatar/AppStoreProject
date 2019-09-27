@@ -29,11 +29,8 @@ class TodayMultipleAppCell: BaseTodayCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.shadowOpacity = 0.1
-        layer.shadowRadius = 10
         backgroundColor = .white
         layer.cornerRadius = 16
-        layer.shadowOffset = .init(width: 0, height: 10)
         
         let stackView = VerticalStackView(arrangedSubviews: [
             categoryLabel,
