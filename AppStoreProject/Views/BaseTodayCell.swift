@@ -28,9 +28,22 @@ class BaseTodayCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.shadowOpacity = 0.1
-        layer.shadowRadius = 10
-        layer.shadowOffset = .init(width: 0, height: 10)
+        self.backgroundView = UIView()
+        
+        addSubview(self.backgroundView!)
+        self.backgroundView?.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundView?.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        self.backgroundView?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        self.backgroundView?.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        self.backgroundView?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        
+        self.backgroundView?.backgroundColor = .white
+        self.backgroundView?.layer.cornerRadius = 16
+        
+        self.backgroundView?.layer.shadowOpacity = 0.1
+        self.backgroundView?.layer.shadowRadius = 10
+        self.backgroundView?.layer.shadowOffset = .init(width: 0, height: 10)
+        self.backgroundView?.layer.shouldRasterize = true
     }
 
     required init?(coder: NSCoder) {
