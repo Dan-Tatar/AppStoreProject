@@ -89,71 +89,84 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
     
+    
+    
+    fileprivate func showDailyListFullScreen(_ indexPath: IndexPath) {
+        let fullController = TodayMultipleAppsController(mode: .fullscreen)
+        fullController.results = items[indexPath.item].apps
+        let navigationController = BackEnabledNavigationController(rootViewController: fullController)
+        present(navigationController, animated: true)
+        return
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if items[indexPath.item].cellType == .multiple {
-            let fullController = TodayMultipleAppsController(mode: .fullscreen)
-            fullController.results = items[indexPath.item].apps
-            let navigationController = BackEnabledNavigationController(rootViewController: fullController)
-            present(navigationController, animated: true)
+            showDailyListFullScreen(indexPath)
             return
+        } else {
+            showSingleAppFullScreen(indexPath: indexPath)
         }
-        
-        let animationTransitionController = AnimationTransitionController()
-        animationTransitionController.todayItem = items[indexPath.row]
-        animationTransitionController.dismissHandler = {
-            self.handleRemoveRedView()
-        }
-        animationTransitionController.view.backgroundColor = .white
-        
-        let fullScreenView = animationTransitionController.view!
-
-        fullScreenView.layer.cornerRadius = 16
-        
-        self.collectionView.isUserInteractionEnabled = false
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) else {
-            return
-        }
-       
-        // absolute coordinate of frame
-        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
-//        redView.frame = startingFrame
-        view.addSubview(fullScreenView)
-        
-        // calling this for the view to render itself and call the methods from animationTransitionController
-        addChild(animationTransitionController)
-        
-        self.animationTransitionController = animationTransitionController
-        
-        self.startingFrame = startingFrame
-        
-        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
-        
-        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
-        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
-        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
-        
-        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
-        self.view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            
-            self.topConstraint?.constant = 0
-            self.leadingConstraint?.constant = 0
-            self.widthConstraint?.constant = self.view.frame.width
-            self.heightConstraint?.constant = self.view.frame.height
-            self.view.layoutIfNeeded()
-        
-            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
-            
-            guard let cell = self.animationTransitionController.tableView.cellForRow(at: [0, 0]) as? AppTransitionHeaderCell else { return }
-            cell.todayCell.topConstraint.constant = 48
-            cell.layoutIfNeeded()
-            
-        }, completion: nil)
     }
+    
+    fileprivate func showSingleAppFullScreen(indexPath: IndexPath) {
+    
+        let animationTransitionController = AnimationTransitionController()
+            animationTransitionController.todayItem = items[indexPath.row]
+            animationTransitionController.dismissHandler = {
+                self.handleRemoveRedView()
+            }
+            animationTransitionController.view.backgroundColor = .white
+            
+            let fullScreenView = animationTransitionController.view!
+
+            fullScreenView.layer.cornerRadius = 16
+            
+            self.collectionView.isUserInteractionEnabled = false
+            
+            guard let cell = collectionView.cellForItem(at: indexPath) else {
+                return
+            }
+           
+            // absolute coordinate of frame
+            guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+    //        redView.frame = startingFrame
+            view.addSubview(fullScreenView)
+            
+            // calling this for the view to render itself and call the methods from animationTransitionController
+            addChild(animationTransitionController)
+            
+            self.animationTransitionController = animationTransitionController
+            
+            self.startingFrame = startingFrame
+            
+            fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+            
+            topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+            leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+            widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+            heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+            
+            [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+                
+                self.topConstraint?.constant = 0
+                self.leadingConstraint?.constant = 0
+                self.widthConstraint?.constant = self.view.frame.width
+                self.heightConstraint?.constant = self.view.frame.height
+                self.view.layoutIfNeeded()
+            
+                self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+                
+                guard let cell = self.animationTransitionController.tableView.cellForRow(at: [0, 0]) as? AppTransitionHeaderCell else { return }
+                cell.todayCell.topConstraint.constant = 48
+                cell.layoutIfNeeded()
+                
+            }, completion: nil)
+    }
+
     
     var startingFrame: CGRect?
     
