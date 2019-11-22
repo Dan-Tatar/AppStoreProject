@@ -66,9 +66,9 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             print("Finished fetching")
             self.activityIndicatorView.stopAnimating()
             self.items = [
-                TodayItem(category: "THE DAILY LIST", title: self.topGroosingApps?.feed.title ?? "", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps: self.topGroosingApps?.feed.results ?? []),
-                TodayItem(category: "THE DAILY LIST", title: self.topFreeApps?.feed.title ?? "" , image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps:  self.topFreeApps?.feed.results ?? []),
                 TodayItem(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single, apps:  []),
+                TodayItem(category: "THE DAILY LIST", title: self.topGroosingApps?.feed.title ?? "", image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps: self.topGroosingApps?.feed.results ?? []),
+                TodayItem(category: "THE DAILY LIST", title: self.topFreeApps?.feed.title ?? "" , image: #imageLiteral(resourceName: "holiday"), description: "", backgroundColor: .white, cellType: .multiple, apps:  self.topFreeApps?.feed.results ?? [])
             ]
             self.collectionView.reloadData()
         }
@@ -101,13 +101,15 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if items[indexPath.item].cellType == .multiple {
+        switch items[indexPath.item].cellType {
+        case .multiple:
             showDailyListFullScreen(indexPath)
             return
-        } else {
+        default:
             showSingleAppFullScreen(indexPath: indexPath)
         }
     }
+    
     
     fileprivate func showSingleAppFullScreen(indexPath: IndexPath) {
     
