@@ -122,26 +122,32 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         self.animationTransitionController = animationTransitionController
     }
     
+    fileprivate func setupStatingFrame(_ indexPath: IndexPath) {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return}
+        
+             // absolute coordinate of frame
+             guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+        
+             //        redView.frame = startingFrame
+             
+             self.startingFrame = startingFrame
+    }
+    
     fileprivate func setupAppFullScreenStartingPosition(_ indexPath: IndexPath) {
         
         let fullScreenView = animationTransitionController.view!
         
         self.collectionView.isUserInteractionEnabled = false
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) else {
-            return
-        }
-        
-        // absolute coordinate of frame
-        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
-        //        redView.frame = startingFrame
+    
         view.addSubview(fullScreenView)
         
         // calling this for the view to render itself and call the methods from animationTransitionController
         addChild(animationTransitionController)
         
+        setupStatingFrame(indexPath)
         
-        self.startingFrame = startingFrame
+        guard let startingFrame = startingFrame else { return }
         
         fullScreenView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -152,6 +158,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
         self.view.layoutIfNeeded()
+          
     }
     
     fileprivate func beginFullScreenAnimation() {
